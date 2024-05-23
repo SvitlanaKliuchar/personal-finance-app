@@ -1,7 +1,11 @@
-
+import React, {useState} from 'react'
 
 export const FinRecordForm = () => {
-    
+    const [description, setDescription] = useState<string>("")
+    const [amount, setAmount] = useState<string>("")
+    const [category, setCategory] = useState<string>("")
+    const [paymentMethod, setPaymentMethod] = useState<string>("")
+
 
     return (<div className="form-container">
         <form >
