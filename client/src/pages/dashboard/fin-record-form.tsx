@@ -20,6 +20,14 @@ export const FinRecordForm = () => {
         category: category,
         paymentMethod: paymentMethod
        }
+
+       // addRecord(newRecord)
+       setDescription("")
+       setAmount("")
+       setCategory("")
+       setPaymentMethod("")
+       
+
     }
 
     return (<div className="form-container">
