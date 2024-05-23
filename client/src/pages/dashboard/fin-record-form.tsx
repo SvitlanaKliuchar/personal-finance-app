@@ -1,14 +1,29 @@
 import React, {useState} from 'react'
+import { useUser } from '@clerk/clerk-react'
 
 export const FinRecordForm = () => {
     const [description, setDescription] = useState<string>("")
     const [amount, setAmount] = useState<string>("")
     const [category, setCategory] = useState<string>("")
     const [paymentMethod, setPaymentMethod] = useState<string>("")
+    
+    const {user} = useUser()
 
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+       event.preventDefault()
+
+       const newRecord = {
+        userId: user?.id,
+        date: new Date(),
+        description: description,
+        amount: parseFloat(amount),
+        category: category,
+        paymentMethod: paymentMethod
+       }
+    }
 
     return (<div className="form-container">
-        <form >
+        <form onSubmit={handleSubmit}>
             <div className="form-field">
                 <label>Description:</label>
                 <input type="text" className="input" required />
