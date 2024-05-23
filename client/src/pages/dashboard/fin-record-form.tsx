@@ -34,15 +34,15 @@ export const FinRecordForm = () => {
         <form onSubmit={handleSubmit}>
             <div className="form-field">
                 <label>Description:</label>
-                <input type="text" className="input" required />
+                <input type="text" className="input" required value={description} />
             </div>
             <div className="form-field">
                 <label>Amount:</label>
-                <input type="text" className="input" required />
+                <input type="text" className="input" required value={amount}/>
             </div>
             <div className="form-field">
                 <label>Category:</label>
-                <select className="input" required>
+                <select className="input" required value={category}>
                     <option value="">Select a category</option>
                     <option value="">Food</option>
                     <option value="">Rent</option>
@@ -54,7 +54,7 @@ export const FinRecordForm = () => {
             </div>
             <div className="form-field">
                 <label>Payment Method:</label>
-                <select className="input" required>
+                <select className="input" required value={paymentMethod}>
                     <option value="Credit Card">Credit Card</option>
                     <option value="Cash">Cash</option>
                 </select>
