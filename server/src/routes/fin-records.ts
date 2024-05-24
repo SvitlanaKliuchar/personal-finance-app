@@ -28,6 +28,21 @@ router.post('/', async (req: Request, res: Response) => {
     }
 })
 
+router.put('/:entryId', async (req: Request, res: Response) => {
+    try {
+        const entryId = req.params.entryId
+        const newRecordBody = req.body 
+        const record = await FinancialRecordModel.findByIdAndUpdate(entryId, newRecordBody, {new: true})
+
+        if (!record) {
+            return res.status(404).send()
+        }
+        res.status(200).send(record)
+    } catch (err) {
+        res.status(500).send(err)
+    }
+})
+
 export default router
 
 //define a route
