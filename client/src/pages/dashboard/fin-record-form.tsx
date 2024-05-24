@@ -6,6 +6,7 @@ export const FinRecordForm = () => {
     const [amount, setAmount] = useState<string>("")
     const [category, setCategory] = useState<string>("")
     const [paymentMethod, setPaymentMethod] = useState<string>("")
+
     
     const {user} = useUser()
 
