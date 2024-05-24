@@ -1,7 +1,7 @@
 //the state manager in this application
 //this is where all our states and functions that alter that state will exist
 
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 interface FinancialRecord {
     id?: string
@@ -37,3 +37,11 @@ export const FinancialRecordsProvider = ({children}: {children: React.ReactNode}
         {children}
     </FinancialRecordsContext.Provider>
 } 
+
+export const useFinancialRecords = () => {
+    const context = useContext<FinancialRecordsContextType | undefined>(FinancialRecordsContext)
+    if (!context) {
+        throw new Error("useFinancial records must be used within a FinancialRecordsProvider")
+    }
+    return context
+}
