@@ -1,6 +1,7 @@
 import express, {Express} from 'express'
 import mongoose from 'mongoose'
 import * as dotenv from 'dotenv';
+import FinancialRecordRouter from './routes/fin-records';
 
 dotenv.config({ path: '.env.local' });
 
@@ -18,6 +19,8 @@ mongoose
     .connect(mongoURI)
     .then(() => console.log('Connected to MongoDB'))
     .catch((err) => console.error('Failed to connect to MongoDB:', err))
+
+app.use("/financial-records", FinancialRecordRouter)
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`)
