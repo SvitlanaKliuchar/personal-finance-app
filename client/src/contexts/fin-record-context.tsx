@@ -4,7 +4,7 @@
 import { useUser } from "@clerk/clerk-react";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-interface FinancialRecord {
+export interface FinancialRecord {
     id?: string
     userId: string;
     date: Date;
