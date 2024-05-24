@@ -47,12 +47,12 @@ export const FinRecordForm = () => {
                 <label>Category:</label>
                 <select className="input" required value={category} onChange={(e) => setCategory(e.target.value)} >
                     <option value="">Select a category</option>
-                    <option value="">Food</option>
-                    <option value="">Rent</option>
-                    <option value="">Salary</option>
-                    <option value="">Utilities</option>
-                    <option value="">Entertainment</option>
-                    <option value="">Other</option>
+                    <option value="Food">Food</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Salary">Salary</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
             <div className="form-field">

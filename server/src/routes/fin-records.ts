@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express"
-import FinancialRecordModel from "@src/schema/fin-record"
+import FinancialRecordModel from "../schema/fin-record"
 
 const router = express.Router()
 
@@ -11,7 +11,7 @@ router.get('/getAllByUserId:userId', async (req: Request, res: Response) => {
             return res.status(404).send("No records found for this user")
         }
         res.status(200).send(records)
-    } catch (err) {
+    } catch (err: any) {
         res.status(500).send(err)
     }
 })
