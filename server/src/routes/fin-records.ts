@@ -33,7 +33,19 @@ router.put('/:entryId', async (req: Request, res: Response) => {
         const entryId = req.params.entryId
         const newRecordBody = req.body 
         const record = await FinancialRecordModel.findByIdAndUpdate(entryId, newRecordBody, {new: true})
+        if (!record) {
+            return res.status(404).send()
+        }
+        res.status(200).send(record)
+    } catch (err) {
+        res.status(500).send(err)
+    }
+})
 
+router.put('/:entryId', async (req: Request, res: Response) => {
+    try {
+        const entryId = req.params.entryId
+        const record = await FinancialRecordModel.findByIdAndDelete(entryId)
         if (!record) {
             return res.status(404).send()
         }
@@ -45,4 +57,3 @@ router.put('/:entryId', async (req: Request, res: Response) => {
 
 export default router
 
-//define a route
